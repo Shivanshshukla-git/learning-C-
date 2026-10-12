@@ -100,3 +100,111 @@ using namespace std;
 // 1) Most operators are Left to Right : ex - int x = 10 - 5 - 2;     // Left to Right → (10 - 5) - 2 = 3
 // 2) Assignment operators (= +=) are Right to Left : ex - int y = a = b = 5;      // Right to Left → a = (b = 5)
 
+// if else - 
+// int main(){
+//     int num;
+
+//     cout<<"Enter a Number: ";
+//     cin>>num;
+
+//     if(num>0){
+//         if(num%2==0){
+//             cout<<"The Number "<<num<<" is positive and even";
+//         }
+//         else if(num%2!=0){
+//             cout<<"The Number "<<num<<" is positive and odd";
+//         }
+//     }
+//     else if(num<0){
+//         if(num%2==0){
+//             cout<<"The Number "<<num<<" is negative and even";
+//         }
+//         else if(num%2!=0){
+//             cout<<"The Number "<<num<<" is negative and odd";
+//         }
+//     }
+//     else if(num == 0){
+//         cout<<"The Number "<<num<<" is zero";
+//     }
+
+//     return 0;
+// }
+
+// int main(){
+//     int age;
+//     cout<<"Enter your age: ";
+//     cin>>age;
+
+//     string result = age>=18? "Can drive": "Not legal";
+//     cout<<result;
+
+//     return 0;
+// }
+
+
+// Switch case - switch only works with int, char, and enum (not with string or float in normal cases).
+// default is optional but recommended.
+
+// int main(){
+//     int day;
+//     cout << "Enter day number (1-7): ";
+//     cin >> day;
+
+//     switch (day) {
+//         case 1:
+//             cout <<"The day is Monday";
+//             break;
+//         case 2:
+//             cout << "The day is Monday";
+//             break;
+//         case 3:
+//             cout << "The day is Monday";
+//             break;
+//         case 4:
+//             cout << "The day is Monday";
+//             break;
+//         case 5:
+//             cout << "The day is Monday";
+//             break;
+//         case 6:
+//             cout << "The day is Monday";
+//             break;
+//         case 7:
+//             cout << "The day is Monday";
+//             break;
+//         default:
+//             cout << "Invalid day";
+//     }
+
+//     return 0;
+// }
+
+
+// LOOPS - three main loops are : for, while and do while;
+
+// int main(){
+//     int num;
+
+//     cout<<"Enter a Number: ";
+//     cin>>num;
+
+//     for(int i=1; i<=10; i++){
+//         cout<<num <<"*"<< i<< "=" << num*i<<endl;
+//     }
+
+//     return 0;
+// }
+
+// Breaks and Continue in loops in C++ is similar to JS;
+int main(){
+    for(int i=1; i<=20; i++){
+        if(i%2 != 0){
+            if(i == 15) break;
+            continue;
+        }
+
+        cout<<i<<""<<endl;
+    }
+    return 0;
+}
+
