@@ -196,15 +196,156 @@ using namespace std;
 // }
 
 // Breaks and Continue in loops in C++ is similar to JS;
-int main(){
-    for(int i=1; i<=20; i++){
-        if(i%2 != 0){
-            if(i == 15) break;
-            continue;
-        }
+// int main(){
+//     for(int i=1; i<=20; i++){
+//         if(i%2 != 0){
+//             if(i == 15) break;
+//             continue;
+//         }
 
-        cout<<i<<""<<endl;
+//         cout<<i<<""<<endl;
+//     }
+//     return 0;
+// }
+
+
+// Functions - A function is a reusable block of code that performs a specific task.
+// We use void when the function only does something (prints, changes values, etc.) and you don’t need any result back. 
+// Otherwise we also define the returnType like int, double, float, etc.. ex - 
+// void sayHello(){
+//     cout<<"Hello from Function!"<<endl;
+// }
+// int add(int x, int y){
+//     return x+y;
+// }
+// int main(){
+//     sayHello();
+//     sayHello();
+//     sayHello();
+
+//     cout<<add(5,8)<<endl;
+//     cout<<add(13, 12)<<endl;
+
+//     return 0;
+// }
+
+// another ex - 
+// void isEven(int x){
+//     if(x%2 == 0){
+//         cout<<x<<" is even"<<endl;
+//     }
+//     else{
+//         cout<<x<<" is odd"<<endl;
+//     }
+// }
+// int main(){
+//     isEven(8);
+//     isEven(13);
+
+//     return 0;
+// }
+
+// Recursion - Recursion means a function that calls itself. A recursive function solves a problem by breaking it into a smaller version of the same problem,
+// until it reaches a simple stopping point (called the base case). Two mandatory parts : 2) Recursive case- the function calls itself with a smaller/simpler input;
+// 1) Base case- condition that stops the recursion (otherwise it runs forever and crashes).
+// void func(int x){
+//     if(x>0){
+//         cout<<x<<endl;
+//         func(x-2);
+//         cout<<x<<endl;
+//     }
+// }
+// int main(){
+//     func(5);
+//     return 0;
+// }
+
+// another ex - 
+// void countDown(int n){
+//     if(n == 0){
+//         cout<<"Blast Off!"<<endl;
+//         return;
+//     }
+//     cout<<n<<endl;
+//     countDown(n-1);
+// }
+// int main(){
+//     countDown(10);
+//     return 0;
+// }
+
+// another ex - factorial
+// int factorial(int n){
+//     if(n == 0 || n == 1){
+//         return 1;
+//     }
+//     return n * factorial(n-1);
+// }
+// int main(){
+//     cout<<factorial(6)<<endl;
+//     return 0;
+// }
+
+
+// Pointers - A pointer is a variable that stores the memory address of another variable.
+// int main(){
+//     int x = 10;
+//     int *ptr = &x;                             // &x → address of x; *ptr → value at that address (dereference);
+//     cout<<*ptr<<endl;                          // output - 10;
+//     return 0;
+// }
+
+// Call by Value (what we’ve been using so far). 
+// A copy of the value is sent to the function. Changing the parameter inside the function does not affect the original variable.
+// void change(int a){
+//     a = 100;
+// }
+// int main(){
+//     int x = 20;
+//     change(x);
+//     cout<<x<<endl;
+//     return 0;
+// }
+
+// Call by Reference (using reference &) - The function works on the original variable, not a copy.
+// void change(int &a){
+//     a = 100;
+// }
+// int main(){
+//     int x = 20;
+//     change(x);
+//     cout<<x<<endl;
+// }
+
+
+// Function overloading - Same function name, but different number or type of parameters.
+// Rules of Overloading: 1) Number of parameters different; 2) Type of parameters different.
+// int sum(int a, int b){
+//     return a+b;
+// }
+// int sum(int a, int b, int c){
+//     return a+b+c;
+// }
+// double sum(double a, double b){
+//     return a+b;
+// }
+// int main(){
+//     cout<<sum(9, 12)<<endl;
+//     cout<<sum(12, 11, 8)<<endl;
+//     cout<<sum(3.14, 6.56)<<endl;
+//     return 0;
+// }
+
+// Default Arguments: You can give default values to parameters. If the caller doesn’t pass that argument, the default is used.
+// Important rules: Default arguments must be at the end. Once you give a default to one parameter, all parameters after it must also have defaults.
+void greet(string name = "Guest", int times = 1){
+    for(int i=0; i<times; i++){
+        cout<<"Hello, "<< name <<endl;
     }
+}
+int main(){
+    greet();
+    greet("Shivansh");
+    greet("Shivansh", 3);
     return 0;
 }
-
