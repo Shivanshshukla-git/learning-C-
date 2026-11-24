@@ -338,14 +338,106 @@ using namespace std;
 
 // Default Arguments: You can give default values to parameters. If the caller doesn’t pass that argument, the default is used.
 // Important rules: Default arguments must be at the end. Once you give a default to one parameter, all parameters after it must also have defaults.
-void greet(string name = "Guest", int times = 1){
-    for(int i=0; i<times; i++){
-        cout<<"Hello, "<< name <<endl;
+// void greet(string name = "Guest", int times = 1){
+//     for(int i=0; i<times; i++){
+//         cout<<"Hello, "<< name <<endl;
+//     }
+// }
+// int main(){
+//     greet();
+//     greet("Shivansh");
+//     greet("Shivansh", 3);
+//     return 0;
+// }
+
+
+// Arrays in C++ - An array is a collection of elements of the same data type stored in continuous memory locations.
+// 1) Declaration & Initialization - 
+// int marks[5];                          // declares array of 5 integers (garbage values);
+// int marks[5] = {90, 85, 78, 92, 88};   // declare + initialize;
+// int marks[] = {90, 85, 78, 92, 88};    // size is automatically 5;
+// int marks[5] = {90, 85};              // rest become 0 → {90, 85, 0, 0, 0}
+// 2) To access elements in arrays - indexing starts from 0.
+
+// 3) Taking Input & Printing - 
+// int main(){
+//     int n;
+//     cout<<"Enter the size of array: "<<endl;
+//     cin>>n;
+
+//     // Input - 
+//     int arr[n];
+//     for(int i=0; i<n; i++){
+//         cout<<"Enter Element at"<< i<<":"<<endl;
+//         cin>>arr[i];
+//     }
+
+//     // Output -
+//     cout<<"\nArray elements: ";
+//     for(int i=0; i<n; i++){
+//         cout<<arr[i]<<" ";
+//     }
+
+//     return 0;
+// }
+
+// 4) How Arrays are Passed to Functions - In C++, when you pass an array to a function, it decays into a pointer. 
+// That means - a) The function works on the original array (not a copy); b) The function only receives the address of the first element.
+// Because array elements are stored continuously in memory, the function can reach every other element using that starting address + index.
+// void printArray(int arr[], int size){
+//     for(int i=0; i<size; i++){
+//         cout<<arr[i]<<" ";
+//     }
+// }
+// int main(){
+//     int nums[] = {10, 20, 30, 40, 50};
+//     int size = 5;
+
+//     printArray(nums, size);
+//     return 0;
+// }
+
+// another example - 
+// void changeArray(int arr[], int size){
+//     arr[0] = 100;                  //changing first element;
+//     arr[1] = 200;                  //changing second element;
+// }
+// int main(){
+//     int nums[] = {10, 20, 30, 40, 50};
+
+//     for(int i=0; i<5; i++){
+//         cout<<nums[i]<<" ";           // output - 10 20 30 40 50;
+//     }
+
+//     cout<<endl;
+//     changeArray(nums, 5);
+//     for(int i=0; i<5; i++){         
+//         cout<<nums[i]<<" ";           // output - 100 200 30 40 50
+//     }
+//     return 0;
+// }
+
+// practice problem - 
+int findMax(int arr[], int size){
+    int maxVal = arr[0];
+    for(int i=1; i<size; i++){
+        if(arr[i]> maxVal){
+            maxVal = arr[i];
+        }
     }
+    return maxVal;
 }
 int main(){
-    greet();
-    greet("Shivansh");
-    greet("Shivansh", 3);
+    int size;
+    cout<<"Enter the size of Array: "<<endl; 
+    cin>>size;
+
+    int arr[size];
+    for(int i=0; i<size; i++){
+        cout<<"Enter Element at "<<i<<" :"<<endl;
+        cin>>arr[i];
+    }
+
+    cout<<"The largest Number in the array is: "<<findMax(arr, size)<<endl;
     return 0;
 }
