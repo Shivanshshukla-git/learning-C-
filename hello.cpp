@@ -418,26 +418,90 @@ using namespace std;
 // }
 
 // practice problem - 
-int findMax(int arr[], int size){
-    int maxVal = arr[0];
-    for(int i=1; i<size; i++){
-        if(arr[i]> maxVal){
-            maxVal = arr[i];
-        }
+// int findMax(int arr[], int size){
+//     int maxVal = arr[0];
+//     for(int i=1; i<size; i++){
+//         if(arr[i]> maxVal){
+//             maxVal = arr[i];
+//         }
+//     }
+//     return maxVal;
+// }
+// int main(){
+//     int size;
+//     cout<<"Enter the size of Array: "<<endl; 
+//     cin>>size;
+
+//     int arr[size];
+//     for(int i=0; i<size; i++){
+//         cout<<"Enter Element at "<<i<<" :"<<endl;
+//         cin>>arr[i];
+//     }
+
+//     cout<<"The largest Number in the array is: "<<findMax(arr, size)<<endl;
+//     return 0;
+// }
+
+
+// Pointer Arithmetic: We can do arithmetic on pointers (+, -, ++, --). 
+// Because array elements are continuous, moving a pointer by 1 actually moves it by the size of the data type.
+// int main(){
+//     int arr[] = {10, 20, 30, 40, 50};
+//     int* ptr = arr;                           // points to first element (arr[0])
+
+//     cout << *ptr << endl;                    // 10
+
+//     ptr++;                                   // now points to arr[1]
+//     cout << *ptr << endl;                   // 20
+
+//     ptr = ptr + 2;                          // moves 2 positions forward → arr[3]
+//     cout << *ptr << endl;                   // 40
+
+//     ptr--;                                 // moves one back → arr[2]
+//     cout << *ptr << endl;                  // 30
+
+//     cout<< *ptr++<<endl;                   // 30; because it's post increment.
+//     cout<< *++ptr<<endl;;                         // 50; because it's pre increment.
+
+//     int *start = &arr[1];
+//     cout<<*start<<endl; 
+
+//     int *end = &arr[4];
+//     cout<<*end<<endl;
+
+//     int diff = *start - *end;
+//     cout<<diff;
+
+//     return 0;
+// }
+
+
+// Static vs dynamic memory allocation : 
+// 1) Static - a) memory is allocated during compile time; b) fixed memory size; c) no extra keyword used; d) No deletion required; e) stored in stack memory;
+// f) faster; g) No memory leak; ex - 
+// void func1(){
+//     int arr[5] = {10, 20, 30, 40, 50};
+//     cout<<arr[2];
+// }
+// int main(){
+//     func1();
+//     return 0;
+// }
+
+// Dynamic - a) memory is allocated during run time; b) vary in size; c) new keyword; d) deletion required (use delete/ delete []);
+// e) heap (larger than stack) memory used; f) slower due to overhead; g) memory leak can happen; ex - 
+void func2(){
+    int n;
+    cout<<"Enter size Array: "<<endl;
+    cin>>n;
+    int *arr = new int [n];
+    for(int i=1; i<=n; i++){
+        arr[i] = i*5;
+        cout<<arr[i]<<" ";
     }
-    return maxVal;
+    delete [] arr;
 }
 int main(){
-    int size;
-    cout<<"Enter the size of Array: "<<endl; 
-    cin>>size;
-
-    int arr[size];
-    for(int i=0; i<size; i++){
-        cout<<"Enter Element at "<<i<<" :"<<endl;
-        cin>>arr[i];
-    }
-
-    cout<<"The largest Number in the array is: "<<findMax(arr, size)<<endl;
+    func2();
     return 0;
 }
